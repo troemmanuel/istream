@@ -1,0 +1,57 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+  }
+  img{
+    width: 45px;
+    height: 45px;
+  }
+  .wireframe{
+    border: solid 1px black;
+    margin-bottom: 20px;
+  }
+  .wireframeHeader{
+    /*border: 1px solid black;-->*/
+    margin: 10px;
+    height: 40px;
+  
+  }
+  .logoname{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+  }
+  .greenBar{
+    background-color: #8ef707;
+    border-left: 1px solid #8ef707;
+    border-right: 1px solid #8ef707;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .nav-item{
+    margin:5px;
+  }
+  .itemWf{
+    border: solid 1px red;
+  }
+  .row4{
+    min-height: max-content;
+  }
+  .formWireframe{
+    background-color: #dfdfdf;
+    border: 1px solid #dfdfdf ;
+    padding: 20px;
+  
+  }
+  .button{
+    float: right;
+  }
+.form-group .col-form-label{
+  font-size: 14px;
+  text-align: right;
+  margin-top: -10px;
+}
+.form-group .form-control{
+  font-size: 14px;
+  margin-top: -10px;
+}
