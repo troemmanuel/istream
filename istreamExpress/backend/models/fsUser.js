@@ -1,2 +1,2 @@
 const connexion = require('./models/dataBase')
-const app = require('..app/app')
+const app = require('../app')
