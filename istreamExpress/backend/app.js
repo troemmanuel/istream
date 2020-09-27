@@ -1,35 +1,28 @@
-//Creation de node app express
-const express = require('express');
-const bodyParser = require('body-parser');
-const ejs = require('ejs');
-const path = require('path');
-const connexion = require('./models/dataBase');
+const express = require("express")
+const path = require('path')
+const ejs = require('ejs')
+const bodyParser = require('body-parser')
 
-//Application express
+//logiciel Express
 const app = express()
 
-// fonction importer
-const routerFsUser = require('./routers/fsUser');
-const routerIndex = require('./routers/index')
+//importing route
+const userAdminRoutes = require('./routers/fsUser')
+const { urlencoded } = require("body-parser")
 
-
-// parametrage du moteur de template ejs
-app.set('views', 'frontend/views');
-app.set('view engine', 'ejs');
-
-// Corps de l'application
-app.use(bodyParser.json()); // API response en JSON
-app.use(
-    // donnée en get post non encodé par l'URL
-    bodyParser.urlencoded({
-        extended: true
-    })
-);
-app.use('/fsUser/', routerFsUser)
-app.use('./routers/index.js', routerIndex)
+// Setting
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '../frontend/views'))
 
 
 
+// Middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', userAdminRoutes);
 
+// static files
+app.use(express.static(path.join(__dirname, '../frontend/public')))
 
+// Module export
 module.exports = app

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Administration</title>
+    <!--  <link rel="stylesheet" href="/istreamExpress/frontend/public/stylesheets/style.css">    -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/6.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .wireframe {
+        border: solid 1px black;
+        margin-bottom: 20px;
+    }
+    
+    .wireframeHeader {
+        /*border: 1px solid black;-->*/
+        margin: 10px;
+        height: 40px;
+    }
+    
+    .logoname {
+        text-align: center;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    
+    .greenBar {
+        background-color: #8ef707;
+        border-left: 1px solid #8ef707;
+        border-right: 1px solid #8ef707;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+    
+    .nav-item {
+        margin: 5px;
+    }
+    
+    .itemWf {
+        border: solid 1px red;
+    }
+    
+    .row4 {
+        min-height: max-content;
+    }
+    
+    .formWireframe {
+        background-color: #dfdfdf;
+        border: 1px solid #dfdfdf;
+        padding: 20px;
+    }
+    
+    .button {
+        float: right;
+    }
+    
+    .form-group .col-form-label {
+        font-size: 14px;
+        text-align: right;
+        margin-top: -10px;
+    }
+    
+    .form-group .form-control {
+        font-size: 14px;
+        margin-top: -10px;
+    }
+</style>
+<!---------------------------------------------------------------------------------- -->
+
+<body>
+
+    <div class="container-fluid">
+        <!-- PREMIERE LIGNE CONTENANT LE LOGO -->
+        <nav class="navbar  ">
+            <span class="navbar-brand" STYLE="font-weight: bold">
+                <img class="mr-6"  src="/istreamExpress/frontend/public/image/logo.png" width="60" height="60    " alt="" loading="lazy" >
+                FUTSO
+            </span>
+
+        </nav>
+        <!-- DEUXIEME LIGNE CONTENANT LA BARRE VERTE -->
+        <div class="row">
+            <div class="col wireframe greenBar">
+            </div>
+        </div>
+        <!--Ligne contenant le menu-->
+        <div class="row">
+            <div aria-label="breadcrumb"></div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item  "><a href="#">CONFIGURATOR</a></li>
+                <li class="breadcrumb-item  "><a href="#">Administrator</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Administration</li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <!-- INPUT FORMULAR -->
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <form action="/save" method="post">
+
+                                <div style="border: solid 1px black; " class="container mb-3 ">
+                                    <legend>Identifier</legend>
+                                    <!-- LIGNE LEEGAL NAME -->
+                                    <div class="form-group row ">
+
+                                        <label for="legalName " class="col-2 col-form-label col-form-label ">Legal Name</label>
+                                        <div class="col-4 ">
+                                            <input type="text " class="form-control form-control " id="legalName " name="legalName" required>
+                                        </div>
+
+                                        <!-- LIGNE DE DEPARTMENT -->
+                                        <label for="department " class="col-2 col-form-label col-form-label ">Department</label>
+                                        <div class="col-4 ">
+                                            <input type="text " class="form-control form-control " id="department " name="departement" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LIGNE DE ACTIVE -->
+                                <div style="border: solid 1px black; " class="container mb-3 ">
+                                    <legend>Status</legend>
+                                    <div class="form-group row ">
+
+                                        <label for="active " class="col-2 col-form-label col-form-label ">Active </label>
+                                        <div class="col-4 ">
+                                            <select type="texte " class="form-control form-control " id="active " name="active" required>
+                                                         <option value="YES ">YES</option>
+                                                         <option value="NO">No</option>
+                                            </select>
+                                        </div>
+
+                                        <label for="active " class="col-2 col-form-label col-form-label ">Reasons </label>
+                                        <div class="col-4 ">
+                                            <input type="text " class="form-control form-control " id="reason " name="reason" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container " style="border: solid 1px black; " class="container ">
+                                    <legend>Details</legend>
+                                    <!-- LIGNE DE USERNAME -->
+                                    <div class="form-group row ">
+                                        <div class="col-1 "></div>
+                                        <label for="username " class="col-3 col-form-label col-form-label ">Username </label>
+                                        <div class="col-6 ">
+                                            <input type="text " class="form-control form-control " id="username " name="userName" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- LIGNE DE TYPE USERNAME -->
+                                    <div class="form-group row ">
+                                        <div class="col-1 "></div>
+                                        <label for="typUsername " class="col-3 col-form-label col-form-label ">Username type</label>
+                                        <div class="col-6 ">
+                                            <select type="texte " class="form-control form-control " id="typUsername " name="userType" required>
+                                                  <option value="ADMIN ">ADMIN</option>
+                                                  <option value="IT">IT</option>
+                                                  <option value="FO">FO</option>
+                                                  <option value="BO ">BO</option>
+                                                 <option value="AC ">AC</option>
+                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row ">
+                                        <div class="col-1 "></div>
+                                        <label for="password " class="col-3 col-form-label col-form-label ">Password </label>
+                                        <div class="col-6 ">
+                                            <input type="password " class="form-control form-control " id="password " name="password" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button type="submit " class="btn btn-success mt-3">SAVE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <!-- TABLE TO DISPLAYS USERS DATE-->
+                    <table class="table table-light table-bordered ">
+                        <thead thead-success>
+                            <tr>
+                                <th>Legal name</th>
+                                <th>Departement</th>
+                                <th>Active</th>
+                                <th>Reason</th>
+                                <th>Username</th>
+                                <th>Usertype</th>
+                                <th>Password</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% fs_user.forEach(
+                            function(user){ %>
+                                <tr>
+                                    <td>
+                                        <%= user._USER_LEGAL_NAME_ %>
+                                    </td>
+                                    <td>
+                                        <%= user.USER_DEPARTEMENT %>
+                                    </td>
+                                    <td>
+                                        <%= user.USER_ACTIVE %>
+                                    </td>
+                                    <td>
+                                        <%= user.USER_REASON %>
+                                    </td>
+                                    <td>
+                                        <%= user._USER_USERNAME %>
+
+                                    </td>
+                                    <td>
+                                        <%= user.USER_TYPE %>
+
+                                    </td>
+                                    <td>
+                                        <%= user.___USER_PASSWORD %>
+
+                                    </td>
+                                    <td>
+                                        <a href=" " class="btn btn-sm btn-primary ">Edit</a>
+                                        <a href=" " class="btn btn-sm btn-danger ">Delete</a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+
+</html>
