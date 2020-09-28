@@ -110,7 +110,8 @@
                     <!-- INPUT FORMULAR -->
                     <div class="row">
                         <div class="col-8 offset-2">
-                            <form action="/save" method="post">
+                            <form action="/update" method="post">
+                                <input type="hidden" value="<%= user.USER_ID %>" name="id">
 
                                 <div style="border: solid 1px black; " class="container mb-3 ">
                                     <legend>Identifier</legend>
@@ -119,13 +120,13 @@
 
                                         <label for="legalName " class="col-2 col-form-label col-form-label ">Legal Name</label>
                                         <div class="col-4 ">
-                                            <input type="text " class="form-control form-control " id="legalName " name="legalName" required>
+                                            <input type="text " class="form-control form-control " id="legalName " name="legalName" value="<%= user._USER_LEGAL_NAME_ %>" required>
                                         </div>
 
                                         <!-- LIGNE DE DEPARTMENT -->
                                         <label for="department " class="col-2 col-form-label col-form-label ">Department</label>
                                         <div class="col-4 ">
-                                            <input type="text " class="form-control form-control " id="department " name="departement" required>
+                                            <input type="text " class="form-control form-control " id="department " name="departement" value=" <%= user.USER_DEPARTEMENT %>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -138,14 +139,14 @@
                                         <label for="active " class="col-2 col-form-label col-form-label ">Active </label>
                                         <div class="col-4 ">
                                             <select type="texte " class="form-control form-control " id="active " name="active" required>
-                                                         <option value="YES ">YES</option>
-                                                         <option value="NO">No</option>
+                                                         <option value=" <%= user.USER_ACTIVE %>"> <%= user.USER_ACTIVE %></option>
+                                                         <option value=" <%= user.USER_ACTIVE %>"> <%= user.USER_ACTIVE %></option>
                                             </select>
                                         </div>
 
                                         <label for="active " class="col-2 col-form-label col-form-label ">Reasons </label>
                                         <div class="col-4 ">
-                                            <input type="text " class="form-control form-control " id="reason " name="reason" required>
+                                            <input type="text " class="form-control form-control " id="reason" name="reason" value=" <%= user.USER_REASON %>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +157,7 @@
                                         <div class="col-1 "></div>
                                         <label for="username " class="col-3 col-form-label col-form-label ">Username </label>
                                         <div class="col-6 ">
-                                            <input type="text " class="form-control form-control " id="username " name="userName" required>
+                                            <input type="text " class="form-control form-control " id="username" name="userName" value="<%= user._USER_USERNAME %>" required>
                                         </div>
                                     </div>
 
@@ -166,11 +167,11 @@
                                         <label for="typUsername " class="col-3 col-form-label col-form-label ">Username type</label>
                                         <div class="col-6 ">
                                             <select type="texte " class="form-control form-control " id="typUsername " name="userType" required>
-                                                  <option value="ADMIN ">ADMIN</option>
-                                                  <option value="IT">IT</option>
-                                                  <option value="FO">FO</option>
-                                                  <option value="BO ">BO</option>
-                                                 <option value="AC ">AC</option>
+                                                  <option value="<%= user.USER_TYPE %> "><%= user.USER_TYPE %></option>
+                                                  <option value="<%= user.USER_TYPE %>"><%= user.USER_TYPE %></option>
+                                                  <option value="<%= user.USER_TYPE %>"><%= user.USER_TYPE %></option>
+                                                  <option value="<%= user.USER_TYPE %>"><%= user.USER_TYPE %></option>
+                                                 <option value="<%= user.USER_TYPE %> "><%= user.USER_TYPE %></option>
                                              </select>
                                         </div>
                                     </div>
@@ -178,72 +179,17 @@
                                         <div class="col-1 "></div>
                                         <label for="password " class="col-3 col-form-label col-form-label ">Password </label>
                                         <div class="col-6 ">
-                                            <input type="password " class="form-control form-control " id="password " name="password" required>
+                                            <input type="password " class="form-control form-control " id="password " name="password" value="<%= user.___USER_PASSWORD %>" required>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit " class="btn btn-success mt-3">ADD NEW USER</button>
+                                <button type="submit " class="btn btn-success mt-3">SAVE EDIT</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <!-- TABLE TO DISPLAYS USERS DATE-->
-                    <table class="table table-light table-bordered ">
-                        <thead thead-success>
-                            <tr>
-                                <th>Legal name</th>
-                                <th>Departement</th>
-                                <th>Active</th>
-                                <th>Reason</th>
-                                <th>Username</th>
-                                <th>Usertype</th>
-                                <th>Password</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% fs_user.forEach(
-                            function(user){ %>
-                                <tr>
-                                    <td>
-                                        <%= user._USER_LEGAL_NAME_ %>
-                                    </td>
-                                    <td>
-                                        <%= user.USER_DEPARTEMENT %>
-                                    </td>
-                                    <td>
-                                        <%= user.USER_ACTIVE %>
-                                    </td>
-                                    <td>
-                                        <%= user.USER_REASON %>
-                                    </td>
-                                    <td>
-                                        <%= user._USER_USERNAME %>
-
-                                    </td>
-                                    <td>
-                                        <%= user.USER_TYPE %>
-
-                                    </td>
-                                    <td>
-                                        <%= user.___USER_PASSWORD %>
-
-                                    </td>
-                                    <td>
-                                        <a href="/edit/<%= user.USER_ID %>" class="btn btn-sm btn-info ">Edit</a>
-                                        <a href="/delete/<%= user.USER_ID %> " class="btn btn-sm btn-danger ">Delete</a>
-                                    </td>
-                                </tr>
-                                <% }); %>
-                        </tbody>
-
-                </div>
-
             </div>
         </div>
     </div>
