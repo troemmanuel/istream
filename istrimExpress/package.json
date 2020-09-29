@@ -2,7 +2,7 @@
     "name": "istreamexpress",
     "version": "1.0.0",
     "description": "",
-    "main": "/istreamExpress/backend/server.js",
+    "main": "/istrimExpress/backend/server.js",
     "scripts": {
         "dev": "npx nodemon backend/server.js -w server"
     },
